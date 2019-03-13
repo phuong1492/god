@@ -92,6 +92,7 @@ load_contact(:prowl)
 load_contact(:scout)
 load_contact(:statsd)
 load_contact(:twitter)
+load_contact(:chatwork)
 load_contact(:webhook)
 load_contact(:airbrake)
 load_contact(:slack)
@@ -443,7 +444,7 @@ module God
   end
 
   def self.watches_by_name(name)
-    case name 
+    case name
       when "", nil then self.watches.values.dup
       else Array(self.watches[name] || self.groups[name]).dup
     end
