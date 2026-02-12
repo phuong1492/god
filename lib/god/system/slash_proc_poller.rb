@@ -1,3 +1,4 @@
+require 'timeout'
 module God
   module System
     class SlashProcPoller < PortablePoller
@@ -61,7 +62,7 @@ module God
       # read from them. Try to use this sparingly as it is expensive.
       def self.readable?(path)
         begin
-          timeout(1) { File.read(path) }
+          Timeout.timeout(1) { File.read(path) }
         rescue Timeout::Error
           false
         end
