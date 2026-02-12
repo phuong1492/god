@@ -1,3 +1,4 @@
+require 'timeout'
 module God
   module System
     class SlashProcPoller < PortablePoller
